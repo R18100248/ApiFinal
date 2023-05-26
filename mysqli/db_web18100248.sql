@@ -34,9 +34,9 @@ CREATE TABLE productosAlimenticios (
         OR departamento = 'Productos enlatados'
         OR departamento = 'Productos congelados y/o refrigerados'),
     CONSTRAINT ck_productosAlimenticios_estadoProducto CHECK (estadoProducto = 'Disponible'
-        OR departamento = 'No Disponible'
-        OR departamento = 'Nuevo'
-        OR departamento = 'Poco Inventario')
+        OR estadoProducto = 'No Disponible'
+        OR estadoProducto = 'Nuevo'
+        OR estadoProducto = 'Poco Inventario')
 );
 
 /* INSERCION DE DATOS */
