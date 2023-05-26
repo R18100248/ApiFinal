@@ -131,7 +131,7 @@ const swaggerOptions = {
  *         estatus:
  *           type: string
  *           description: Resultado erróneo de la operación realizada.
- *           example: ERROR DE CAPTURA - El producto NO se modificó dentro de la base de datos productosAlimenticios.
+ *           example: ERROR DE CAPTURA - El producto NO se insertó/modificó dentro de la base de datos productosAlimenticios.
  */
 
 /**
