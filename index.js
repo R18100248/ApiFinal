@@ -125,7 +125,7 @@ const swaggerOptions = {
  *           type: string
  *           description: Resultado erróneo de la operación realizada.
  *           example: ERROR DE CAPTURA - No se encontró ningún producto alimenticio con este código.
- *     respuestaErrorEditar
+ *     respuestaErrorEditar:
  *     type: object
  *     properties:
  *       estatus:
