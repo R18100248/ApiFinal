@@ -5,7 +5,7 @@
         "version": "1.0.0",
         "description": "`Descripción` de la *API* de **Productos Alimenticios** (Rogelio Zamarripa Treviño - 18100248)."
     },
-    "servers": [{"url": "http://localhost:8082"}],
+    "servers": [{"url": "https://apifinal-production-d4ae.up.railway.app/"}],
     "tags":[{
         "name": "productos",
         "description": "Catálogo de Productos Alimenticios."

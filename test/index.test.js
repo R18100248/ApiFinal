@@ -1,5 +1,5 @@
 const request = require("supertest");
-const url = "http://localhost:8082";
+const url = "https://apifinal-production-d4ae.up.railway.app/";
 
 describe('Testear GET a la ruta de productosAlimenticios2 con CALLBACK', ()=>
 {
