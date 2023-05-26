@@ -1,5 +1,4 @@
-/* SCRIPT DE CREACION DE BASE DE DATOS web18100248 Y TABLA productosAlimenticios
-(Rogelio Zamarripa Treviño - 18100248) */
+/* SCRIPT DE CREACION DE BASE DE DATOS web18100248 Y TABLA productosAlimenticios (Rogelio Zamarripa Treviño - 18100248) */
 drop database web18100248;
 
 create database web18100248;
