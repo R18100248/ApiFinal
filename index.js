@@ -125,6 +125,13 @@ const swaggerOptions = {
  *           type: string
  *           description: Resultado erróneo de la operación realizada.
  *           example: ERROR DE CAPTURA - No se encontró ningún producto alimenticio con este código.
+ *     respuestaErrorEditar
+ *     type: object
+ *     properties:
+ *       estatus:
+ *         type: string
+ *         description: Resultado erróneo de la operación realizada.
+ *         example: ERROR DE CAPTURA - El producto NO se modificó dentro de la base de datos productosAlimenticios.
  */
 
 /**
@@ -291,10 +298,10 @@ const swaggerOptions = {
  *          content:
  *            application/json:
  *              schema:
- *                $ref: '#/components/schemas/respuestaError'
+ *                $ref: '#/components/schemas/respuestaErrorEditar'
  *            application/xml:
  *              schema:
- *                $ref: '#/components/schemas/respuestaError'
+ *                $ref: '#/components/schemas/respuestaErrorEditar'
  */
 
 app.get('/productosAlimenticios2', async (req, res) => {
