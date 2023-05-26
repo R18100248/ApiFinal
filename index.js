@@ -7,6 +7,7 @@ const path = require('path');
 const fs = require('fs');
 
 //mysql.createConnection
+const PORT          = process.env.PORT || 8082
 const MYSQLPORT     = process.env.MYSQLPORT || 3306
 const MYSQLHOST     = process.env.MYSQLHOST || 'localhost';
 const MYSQLUSER     = process.env.MYSQLUSER || 'root';
@@ -487,7 +488,7 @@ app.use((req,res)=>
     res.status(404).json({estado: "Pagina = Ruta No Encontrada"})
 })
 
-app.listen(8082,()=>
+app.listen(PORT,()=>
 {
-    console.log("Servidor Express corriendo y escuchando en el puerto 8082 - Rogelio Zamarripa Treviño (18100248)")
+    console.log(`Servidor Express corriendo y escuchando en el puerto ${PORT} - Rogelio Zamarripa Treviño (18100248)`)
 })
