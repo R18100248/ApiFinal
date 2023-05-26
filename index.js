@@ -219,10 +219,10 @@ const swaggerOptions = {
  *          content:
  *            application/json:
  *              schema:
- *                $ref: '#/components/schemas/respuestaError'
+ *                $ref: '#/components/schemas/respuestaErrorEditar'
  *            application/xml:
  *              schema:
- *                $ref: '#/components/schemas/respuestaError'
+ *                $ref: '#/components/schemas/respuestaErrorEditar'
  */
 
 /**
