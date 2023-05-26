@@ -52,7 +52,7 @@ const swaggerOptions = {
             // Sintaxis de Markdown, COLOCAR UNA IMAGEN
         },
         servers:[
-            {url: "http://localhost:8082"}
+            {url: "https://apifinal-production-d4ae.up.railway.app/"}
         ],
         tags:[{
             name: "productos",
