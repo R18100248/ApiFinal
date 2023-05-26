@@ -370,11 +370,11 @@ app.get('/productosAlimenticios/:codigo', async(req,res) =>
     if(rows.length == 0)
     {
         // res.json({registros:"ERROR DE CAPTURA: No se encontró ningún producto alimenticio con este código."});
-        res.status(500).send(`ERROR DE CAPTURA: No se encontró ningún producto alimenticio con este código.`);
+        res.status(400).send(`ERROR DE CAPTURA: No se encontró ningún producto alimenticio con este código.`);
     }
     else
     {
-        res.json(rows);
+        res.status(200).json(rows[0]);
     }
 })
 
