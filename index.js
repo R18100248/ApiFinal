@@ -6,6 +6,13 @@ const morgan = require('morgan');
 const path = require('path');
 const fs = require('fs');
 
+//mysql.createConnection
+const MYSQLPORT     = process.env.MYSQLPORT || 3306
+const MYSQLHOST     = process.env.MYSQLHOST || 'localhost';
+const MYSQLUSER     = process.env.MYSQLUSER || 'root';
+const MYSQLDATABASE = process.env.MYSQLDATABASE || 'web18100248';
+const MYSQLPASSWORD = process.env.MYSQLPASSWORD || 'AcrossTheDark2009';
+
 const swaggerUI = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
 
@@ -335,7 +342,7 @@ const swaggerOptions = {
  */
 
 app.get('/productosAlimenticios2', async (req, res) => {
-    const connection = await mysql.createConnection({host:'localhost', user: 'root', database: 'web18100248'});
+    const connection = await mysql.createConnection({host: MYSQLHOST, port: MYSQLPORT, user: MYSQLUSER, database: MYSQLDATABASE, password: MYSQLPASSWORD});
     const [rows, fields] = await connection.execute('SELECT * FROM productosAlimenticios');
     res.json(rows);
 });
@@ -345,7 +352,7 @@ app.get('/productosAlimenticios2', async (req, res) => {
 //Petición tipo GET a la ruta - CONSULTA DE TODOS LOS PRODUCTOS
 app.get('/productosAlimenticios/', async(req,res) =>
 {
-    const connection = await mysql.createConnection({host:'localhost', user: 'root', database: 'web18100248'});
+    const connection = await mysql.createConnection({host: MYSQLHOST, port: MYSQLPORT, user: MYSQLUSER, database: MYSQLDATABASE, password: MYSQLPASSWORD});
     const [rows, fields] = await connection.execute('SELECT * FROM productosAlimenticios');
     //"SELECT * FROM productosAlimenticios WHERE codigoProducto = 'PR00002'"
 
@@ -356,7 +363,7 @@ app.get('/productosAlimenticios/', async(req,res) =>
 app.get('/productosAlimenticios/:codigo', async(req,res) =>
 {
     //EJEMPLO - IMPRIMIR producto con codigo 1: http://localhost:8081/productosAlimenticios/1
-    const connection = await mysql.createConnection({host:'localhost', user: 'root', database: 'web18100248'});
+    const connection = await mysql.createConnection({host: MYSQLHOST, port: MYSQLPORT, user: MYSQLUSER, database: MYSQLDATABASE, password: MYSQLPASSWORD});
     const [rows, fields] = await connection.execute('SELECT * FROM `productosAlimenticios` WHERE `codigoProducto` = ?',[req.params.codigo]);
 
     if(rows.length == 0)
@@ -378,7 +385,7 @@ app.post('/productosAlimenticios/', async(req,res) =>
     VALUES('${req.body.codigoProducto}','${req.body.nombreProducto}','${req.body.departamento}','${req.body.proveedorProducto}','${req.body.codigoProveedor}',
     '${req.body.precioCompra}','${req.body.precioVenta}','${req.body.cantProdVendidos}','${req.body.cantProdExistentes}','${req.body.estadoProducto}')`;
 
-    const connection = await mysql.createConnection({host:'localhost', user: 'root', database: 'web18100248'});
+    const connection = await mysql.createConnection({host: MYSQLHOST, port: MYSQLPORT, user: MYSQLUSER, database: MYSQLDATABASE, password: MYSQLPASSWORD});
     const [rows, fields] = await connection.execute(sentenciaSQL);
 
     if(rows.affectedRows == 1)
@@ -398,7 +405,7 @@ app.delete('/productosAlimenticios/:codigo', async(req,res) =>
 {
     const codigoProductoAlimenticio = req.params.codigo;
     //EJEMPLO - BORRAR producto con codigo 1: http://localhost:8081/productosAlimenticios/1
-    const connection = await mysql.createConnection({host:'localhost', user: 'root', database: 'web18100248'});
+    const connection = await mysql.createConnection({host: MYSQLHOST, port: MYSQLPORT, user: MYSQLUSER, database: MYSQLDATABASE, password: MYSQLPASSWORD});
     const [rows, fields] = await connection.execute('DELETE FROM `productosAlimenticios` WHERE `codigoProducto` = ?',[codigoProductoAlimenticio]);
 
     if(rows.affectedRows == 1)
@@ -419,7 +426,7 @@ app.put('/productosAlimenticios/', async(req,res) =>
     precioCompra = '${req.body.precioCompra}', precioVenta = '${req.body.precioVenta}', cantProdVendidos = '${req.body.cantProdVendidos}', cantProdExistentes = '${req.body.cantProdExistentes}',
     estadoProducto = '${req.body.estadoProducto}' WHERE codigoProducto = '${req.body.codigoProducto}'`;
 
-    const connection = await mysql.createConnection({host:'localhost', user: 'root', database: 'web18100248'});
+    const connection = await mysql.createConnection({host: MYSQLHOST, port: MYSQLPORT, user: MYSQLUSER, database: MYSQLDATABASE, password: MYSQLPASSWORD});
     const [rows, fields] = await connection.execute(sentenciaSQLModificar);
 
     if(rows.affectedRows == 1)
