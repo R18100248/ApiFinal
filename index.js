@@ -111,51 +111,6 @@ const swaggerOptions = {
  *           example: Disponible
  *       xml:
  *         name: productoAlimenticio
- *     productoAlimenticioAEditar:
- *       type: object
- *       properties:
- *         codigoProducto:
- *           type: smallint
- *           description: Código identificador del producto alimenticio.
- *           example: 12
- *         nombreProducto:
- *           type: string
- *           description: Nombre del producto alimenticio.
- *           example: EJEMPLO NOMBRE DE PRODUCTO MODIFICADO
- *         departamento:
- *           type: string
- *           description: Departamento al que pertenece dicho producto alimenticio ('Aceites y Mantecas', 'Bebidas alcohólicas', 'Botanas', etc.).
- *           example: Aceites y Mantecas
- *         proveedorProducto:
- *           type: string
- *           description: Nombre de la empresa proveedora del producto alimenticio.
- *           example: EJEMPLO NOMBRE DE EMPRESA PROVEEDORA
- *         codigoProveedor:
- *           type: string
- *           description: Código identificador de la empresa proveedora del producto alimenticio.
- *           example: EP-98765
- *         precioCompra:
- *           type: decimal
- *           description: Precio de compra del producto alimenticio.
- *           example: 5.50
- *         precioVenta:
- *           type: decimal
- *           description: Precio de venta del producto alimenticio.
- *           example: 10.50
- *         cantProdVendidos:
- *           type: smallint
- *           description: Cantidad de productos alimenticios vendidos hasta el momento.
- *           example: 50
- *         cantProdExistentes:
- *           type: smallint
- *           description: Cantidad de productos alimenticios existentes hasta el momento.
- *           example: 0
- *         estadoProducto:
- *           type: string
- *           description: Estado de disponibilidad del producto alimenticio ('Disponible', 'No Disponible', 'Nuevo', 'Poco Inventario').
- *           example: No Disponible
- *       xml:
- *         name: productoAlimenticioAEditar
  *     respuesta:
  *       type: object
  *       properties:
@@ -211,7 +166,7 @@ const swaggerOptions = {
  *            application/xml:
  *              schema:
  *                $ref: '#/components/schemas/productoAlimenticio'
- *        500:
+ *        400:
  *          description: ERROR DE CAPTURA - No se encontró ningún producto alimenticio con el código ingresado / Código no válido.
  *          content:
  *            application/json:
@@ -252,7 +207,7 @@ const swaggerOptions = {
  *            application/xml:
  *              schema:
  *                $ref: '#/components/schemas/respuesta'
- *        500:
+ *        400:
  *          description: ERROR DE CAPTURA - El producto NO se insertó a la tabla 'productosAlimenticios' / Los datos ingresados NO son válidos.
  *          content:
  *            application/json:
@@ -313,13 +268,13 @@ const swaggerOptions = {
  *        content:
  *          application/json:
  *            schema:
- *              $ref: '#/components/schemas/productoAlimenticioAEditar'
+ *              $ref: '#/components/schemas/productoAlimenticio'
  *          application/xml:
  *            schema:
- *              $ref: '#/components/schemas/productoAlimenticioAEditar'
+ *              $ref: '#/components/schemas/productoAlimenticio'
  *          application/x-www-form-urlencoded:
  *            schema:
- *              $ref: '#/components/schemas/productoAlimenticioAEditar'
+ *              $ref: '#/components/schemas/productoAlimenticio'
  *        required: true
  *      responses:
  *        200:
@@ -331,7 +286,7 @@ const swaggerOptions = {
  *            application/xml:
  *              schema:
  *                $ref: '#/components/schemas/respuesta'
- *        500:
+ *        400:
  *          description: ERROR DE CAPTURA - Los datos del producto NO se modificaron dentro de la tabla 'productosAlimenticios' / Los datos ingresados NO son válidos.
  *          content:
  *            application/json:
@@ -396,7 +351,7 @@ app.post('/productosAlimenticios/', async(req,res) =>
     }
     else
     {
-        res.status(500).send(`ERROR DE CAPTURA: El producto NO se insertó a la base de datos productosAlimenticios.`);
+        res.status(400).send(`ERROR DE CAPTURA: El producto NO se insertó a la base de datos productosAlimenticios.`);
     }
     
 })
@@ -437,7 +392,7 @@ app.put('/productosAlimenticios/', async(req,res) =>
     }
     else
     {
-        res.status(500).send(`ERROR DE CAPTURA: El producto NO se modificó dentro de la base de datos productosAlimenticios.`);
+        res.status(400).send(`ERROR DE CAPTURA: El producto NO se modificó dentro de la base de datos productosAlimenticios.`);
     }
 })
 
